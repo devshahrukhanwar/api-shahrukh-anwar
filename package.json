@@ -2,10 +2,17 @@
 	"name": "express",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.ts",
+	"main": "dist/index.js",
+	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node api/index.ts"
+		"build": "tsc --watch",
+		"start": "node -r module-alias/register dist/index.js",
+		"dev": "nodemon -r module-alias/register dist/index.js",
+		"dev:all": "concurrently \"npm run build\" \"npm run dev\""
+	},
+	"_moduleAliases": {
+		"@": "dist"
 	},
 	"keywords": [],
 	"author": "",
@@ -13,6 +20,15 @@
 	"dependencies": {
 		"@vercel/postgres": "^0.7.2",
 		"dotenv": "^16.4.1",
-		"express": "^4.18.2"
+		"express": "^4.18.2",
+		"module-alias": "^2.2.3"
+	},
+	"devDependencies": {
+		"@types/express": "^5.0.3",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.8.3",
+		"ts-node-dev": "^2.0.0",
+		"nodemon": "^3.1.0",
+		"concurrently": "^8.2.2"
 	}
 }
