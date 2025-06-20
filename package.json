@@ -6,13 +6,10 @@
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "tsc --watch",
-		"start": "node -r module-alias/register dist/index.js",
-		"dev": "nodemon -r module-alias/register dist/index.js",
-		"dev:all": "concurrently \"npm run build\" \"npm run dev\""
-	},
-	"_moduleAliases": {
-		"@": "dist"
+		"build": "tsc",
+		"start": "node dist/index.js",
+		"dev": "nodemon dist/index.js",
+		"dev:all": "concurrently \"tsc --watch\" \"npm run dev\""
 	},
 	"keywords": [],
 	"author": "",
@@ -20,8 +17,7 @@
 	"dependencies": {
 		"@vercel/postgres": "^0.7.2",
 		"dotenv": "^16.4.1",
-		"express": "^4.18.2",
-		"module-alias": "^2.2.3"
+		"express": "^4.18.2"
 	},
 	"devDependencies": {
 		"@types/express": "^5.0.3",
