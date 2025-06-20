@@ -2,13 +2,13 @@
 	"name": "express",
 	"version": "1.0.0",
 	"description": "",
-	"main": "dist/index.js",
-	"type": "module",
+	"main": "src/index.js",
+	"type": "commonjs",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "tsc",
-		"start": "node dist/index.js",
-		"dev": "nodemon dist/index.js",
+		"start": "node src/index.js",
+		"dev": "nodemon src/index.js",
 		"dev:all": "concurrently \"tsc --watch\" \"npm run dev\""
 	},
 	"keywords": [],
@@ -21,8 +21,6 @@
 	},
 	"devDependencies": {
 		"@types/express": "^5.0.3",
-		"ts-node": "^10.9.2",
-		"typescript": "^5.8.3",
 		"ts-node-dev": "^2.0.0",
 		"nodemon": "^3.1.0",
 		"concurrently": "^8.2.2"
