@@ -1,5 +1,3 @@
-// const { SocialMediaStrategy } = require("./SocialMediaStrategy");
-
 class SocialMediaService {
   strategy;
 

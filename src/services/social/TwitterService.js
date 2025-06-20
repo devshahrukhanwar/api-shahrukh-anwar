@@ -1,5 +1,3 @@
-// const { SocialMediaStrategy } = require("./SocialMediaStrategy");
-
 class TwitterService {
   async fetchPosts() {
     // Placeholder: Replace with real Twitter API logic
