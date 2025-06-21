@@ -1,11 +1,13 @@
 require("dotenv").config();
 
+const cors = require("cors");
 const express = require("express");
 const app = express();
 
 const apiRoutes = require("./routes/api");
 
 // Middleware
+app.use(cors());
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 

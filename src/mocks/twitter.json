@@ -1,0 +1,316 @@
+{
+  "data": [
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 18,
+            "end": 41,
+            "url": "https://t.co/CkaMQ0Uzru",
+            "expanded_url": "https://twitter.com/Avengers/status/1904931466531979590",
+            "display_url": "x.com/Avengers/statu…"
+          }
+        ]
+      },
+      "text": "Finally it's on 🔥 https://t.co/CkaMQ0Uzru",
+      "created_at": "2025-03-26T17:25:05.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1904947728435773518"
+      ],
+      "id": "1904947728435773518"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 254,
+            "end": 268,
+            "tag": "developerlife"
+          },
+          {
+            "start": 269,
+            "end": 276,
+            "tag": "webdev"
+          }
+        ],
+        "urls": [
+          {
+            "start": 109,
+            "end": 132,
+            "url": "https://t.co/Msrqq1Sv0T",
+            "expanded_url": "https://dev.to/devshahrukh/you-need-an-interesting-portfolio-website-to-showcase-your-experience-then-now-and-forever-15e7",
+            "display_url": "dev.to/devshahrukh/yo…",
+            "status": 200,
+            "title": "You Need an Interesting Portfolio Website to Showcase Your Experience - Then, Now and Forever",
+            "description": "In today’s competitive job market, having a strong online presence is crucial for software engineers....",
+            "unwound_url": "https://dev.to/devshahrukh/you-need-an-interesting-portfolio-website-to-showcase-your-experience-then-now-and-forever-15e7"
+          },
+          {
+            "start": 156,
+            "end": 179,
+            "url": "https://t.co/MPpl7xXgL9",
+            "expanded_url": "https://shahrukh4.github.io",
+            "display_url": "shahrukh4.github.io",
+            "status": 200,
+            "title": "Portfolio | Shahrukh Anwar",
+            "description": "Software Developer Portfolio Template that helps in showcasing my work and skills as a software developer",
+            "unwound_url": "https://shahrukh4.github.io"
+          },
+          {
+            "start": 229,
+            "end": 252,
+            "url": "https://t.co/1tcyZ2eMmE",
+            "expanded_url": "https://shahrukhanwar.vercel.app",
+            "display_url": "shahrukhanwar.vercel.app",
+            "status": 200,
+            "title": "Shahrukh Anwar",
+            "description": "Shahrukh Anwar is a seasoned Full stack developer with 8+ years of experience in IT industry. He has a strong background in software development and has worked on various projects including web development, API development, web designing etc.",
+            "unwound_url": "https://shahrukhanwar.vercel.app"
+          }
+        ]
+      },
+      "text": "Do you have a portfolio website to showcase your work? Why or Why not, let's discuss.\n\nHere's my take on it:\nhttps://t.co/Msrqq1Sv0T\n\nHere's mine for now - https://t.co/MPpl7xXgL9\n\nWorking on a new design 🤫, it will come soon - \nhttps://t.co/1tcyZ2eMmE\n\n#developerlife #webdev",
+      "created_at": "2025-01-29T13:50:04.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1884599896805978267"
+      ],
+      "id": "1884599896805978267"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 10,
+            "end": 33,
+            "url": "https://t.co/ONdSx3v9Cw",
+            "expanded_url": "https://twitter.com/soulfulidiots/status/1767905648212320611",
+            "display_url": "x.com/soulfulidiots/…"
+          }
+        ]
+      },
+      "text": "Sahi baat https://t.co/ONdSx3v9Cw",
+      "created_at": "2024-03-13T18:53:37.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1767987394144608280"
+      ],
+      "id": "1767987394144608280"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 7,
+            "end": 30,
+            "url": "https://t.co/c8uhcBfb5p",
+            "expanded_url": "https://twitter.com/soulfulidiots/status/1763777298078060713",
+            "display_url": "x.com/soulfulidiots/…"
+          }
+        ]
+      },
+      "text": "True 💯 https://t.co/c8uhcBfb5p",
+      "created_at": "2024-03-13T18:53:15.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1767987305489510546"
+      ],
+      "id": "1767987305489510546"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 5,
+            "end": 28,
+            "url": "https://t.co/or30l4fPcX",
+            "expanded_url": "https://twitter.com/soulfulidiots/status/1767159786213437849",
+            "display_url": "x.com/soulfulidiots/…"
+          }
+        ]
+      },
+      "text": "Waah https://t.co/or30l4fPcX",
+      "created_at": "2024-03-13T06:12:09.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1767795765316059537"
+      ],
+      "id": "1767795765316059537"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 5,
+            "end": 28,
+            "url": "https://t.co/XhZma9sbTc",
+            "expanded_url": "https://twitter.com/soulfulidiots/status/1762828145131180482",
+            "display_url": "x.com/soulfulidiots/…"
+          }
+        ]
+      },
+      "text": "Waah https://t.co/XhZma9sbTc",
+      "created_at": "2024-02-29T14:45:42.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1763213963024642231"
+      ],
+      "id": "1763213963024642231"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 3,
+            "end": 26,
+            "url": "https://t.co/uBKqubzNn4",
+            "expanded_url": "https://twitter.com/soulfulidiots/status/1739673589023146126",
+            "display_url": "x.com/soulfulidiots/…"
+          }
+        ]
+      },
+      "text": "🔥🔥 https://t.co/uBKqubzNn4",
+      "created_at": "2024-01-27T04:29:03.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1751099979983397037"
+      ],
+      "id": "1751099979983397037"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 13,
+            "end": 36,
+            "url": "https://t.co/nR75pyWI7t",
+            "expanded_url": "https://twitter.com/soulfulidiots/status/1750907796957348155",
+            "display_url": "x.com/soulfulidiots/…"
+          }
+        ]
+      },
+      "text": "Beautiful ❤️ https://t.co/nR75pyWI7t",
+      "created_at": "2024-01-27T04:27:56.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1751099696972759277"
+      ],
+      "id": "1751099696972759277"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 3,
+            "end": 26,
+            "url": "https://t.co/0Co90doH5r",
+            "expanded_url": "https://twitter.com/soulfulidiots/status/1750913069054828747",
+            "display_url": "x.com/soulfulidiots/…"
+          }
+        ]
+      },
+      "text": "🌸🌸 https://t.co/0Co90doH5r",
+      "created_at": "2024-01-27T04:27:38.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1751099622280528307"
+      ],
+      "id": "1751099622280528307"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 7,
+            "end": 30,
+            "url": "https://t.co/n7yFRa9pnO",
+            "expanded_url": "https://twitter.com/soulfulidiots/status/1750752502629515715",
+            "display_url": "x.com/soulfulidiots/…"
+          }
+        ]
+      },
+      "text": "Waah 🔥 https://t.co/n7yFRa9pnO",
+      "created_at": "2024-01-27T04:26:45.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1751099399454019963"
+      ],
+      "id": "1751099399454019963"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 6,
+            "end": 29,
+            "url": "https://t.co/Rdwb13UgBz",
+            "expanded_url": "https://twitter.com/soulfulidiots/status/1749454449008091593",
+            "display_url": "x.com/soulfulidiots/…"
+          }
+        ]
+      },
+      "text": "True💯 https://t.co/Rdwb13UgBz",
+      "created_at": "2024-01-22T15:42:03.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1749457404444688725"
+      ],
+      "id": "1749457404444688725"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 16,
+            "end": 39,
+            "url": "https://t.co/6R9lZLHYoV",
+            "expanded_url": "https://twitter.com/soulfulidiots/status/1748726138564702604",
+            "display_url": "x.com/soulfulidiots/…"
+          }
+        ]
+      },
+      "text": "वाह बहोत ख़ूब 🔥 https://t.co/6R9lZLHYoV",
+      "created_at": "2024-01-20T17:12:15.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1748755327942889980"
+      ],
+      "id": "1748755327942889980"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 2,
+            "end": 25,
+            "url": "https://t.co/Z2DoUNaAnn",
+            "expanded_url": "https://twitter.com/soulfulidiots/status/1748727369891033434",
+            "display_url": "x.com/soulfulidiots/…"
+          }
+        ]
+      },
+      "text": "💯 https://t.co/Z2DoUNaAnn",
+      "created_at": "2024-01-20T17:06:52.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "1748753972708495628"
+      ],
+      "id": "1748753972708495628"
+    }
+  ],
+  "includes": {
+    "users": [
+      {
+        "id": "821086866900295680",
+        "name": "Shahrukh Anwar",
+        "username": "shahrukhanwar58"
+      }
+    ]
+  },
+  "meta": {
+    "result_count": 13,
+    "newest_id": "1904947728435773518",
+    "oldest_id": "1748753972708495628"
+  }
+}
