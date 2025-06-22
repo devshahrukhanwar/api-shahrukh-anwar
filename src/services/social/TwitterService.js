@@ -1,6 +1,7 @@
 const axios = require('axios');
-
-const twitter = require('../../mocks/twitter.json');
+const fs = require('fs');
+const path = require('path');
+const twitter = require('../../mocks/twitter.json'); // Mock data for testing
 
 class TwitterService {
   /**
@@ -8,7 +9,7 @@ class TwitterService {
    * @returns {Promise<void>}
    * @throws {Error} If the request fails or the API returns an error.
    */
-  async fetchPosts() {
+  async fetchTweets() {
     const token = process.env.TWITTER_API_KEY;
 
     try {
@@ -19,9 +20,10 @@ class TwitterService {
         params: {
           max_results: 100,
           exclude: 'replies,retweets',
-          'tweet.fields': 'created_at,entities,attachments',
-          expansions: 'attachments.media_keys,author_id',
-          'media.fields': 'url,preview_image_url,type',
+          since_id: '1884599896805978267',
+          expansions: 'author_id',
+          'tweet.fields': 'created_at,entities',
+          'user.fields': 'id,name,username,profile_image_url',
         }
       });
 
@@ -31,7 +33,18 @@ class TwitterService {
     }
   }
 
-  async fetchDummyPosts() {
+  async fetchPosts() {
+    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+    const tempDir = path.join(__dirname, '../../mocks/temp');
+    const tempFile = path.join(tempDir, `${today}-twitter.json`);
+
+    // Check if file exists
+    if (fs.existsSync(tempFile)) {
+      const cached = fs.readFileSync(tempFile, 'utf-8');
+      return JSON.parse(cached);
+    }
+
+    // const twitter = await this.fetchTweets();
     const filteredPosts = twitter.data.filter(
       post =>
         post.entities &&
@@ -47,10 +60,15 @@ class TwitterService {
       profile_image_url: twitter.includes.users[0].profile_image_url.replace('_normal', '_400x400')
     };
 
-    return {
+    const response = {
       user,
       tweets: filteredPosts
     };
+
+    // Write to temp file
+    fs.writeFileSync(tempFile, JSON.stringify(response, null, 2), 'utf-8');
+
+    return response;
   }
 }
 
