@@ -3,14 +3,23 @@ const { SocialMediaService } = require("../services/social/SocialMediaService");
 
 class SocialController {
   static async getPosts(_, res) {
-    const context = new SocialMediaService(new TwitterService());
-    const twitterPosts = await context.fetchPosts();
-    res.send({
-      success: true,
-      data: {
-        twitter: twitterPosts,
-      },
-    });
+    try {
+      const context = new SocialMediaService(new TwitterService());
+      const twitterPosts = await context.fetchPosts();
+
+      res.status(200).send({
+        success: true,
+        data: {
+          twitter: twitterPosts,
+        },
+      });
+    } catch (error) {
+      res.status(500).send({
+        success: false,
+        message: "Failed to fetch posts",
+        error: error.message,
+      });
+    }
   }
 }
 

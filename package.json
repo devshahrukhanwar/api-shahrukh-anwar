@@ -21,8 +21,10 @@
 	},
 	"devDependencies": {
 		"@types/express": "^5.0.3",
-		"ts-node-dev": "^2.0.0",
+		"axios": "^1.10.0",
+		"concurrently": "^8.2.2",
+		"cors": "^2.8.5",
 		"nodemon": "^3.1.0",
-		"concurrently": "^8.2.2"
+		"ts-node-dev": "^2.0.0"
 	}
 }

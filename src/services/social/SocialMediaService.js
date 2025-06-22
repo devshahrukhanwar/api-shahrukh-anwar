@@ -12,6 +12,10 @@ class SocialMediaService {
   async fetchPosts() {
     return this.strategy.fetchPosts();
   }
+
+  async fetchDummyPosts() {
+    return this.strategy.fetchDummyPosts();
+  }
 }
 
 module.exports = { SocialMediaService };
