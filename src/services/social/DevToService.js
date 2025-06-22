@@ -16,7 +16,7 @@ class DevToService {
       });
 
       return data.map(blog => ({
-        source: 'dev.to',
+        source: 'Dev.to',
         date: blog.published_at,
         title: blog.title,
         url: blog.url,
