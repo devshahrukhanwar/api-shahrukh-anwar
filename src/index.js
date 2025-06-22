@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("./services/cleanupTempFilesCron");
 
 const cors = require("cors");
 const express = require("express");
