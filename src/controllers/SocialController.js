@@ -5,7 +5,7 @@ class SocialController {
   static async getPosts(_, res) {
     try {
       const context = new SocialMediaService(new TwitterService());
-      const twitterPosts = await context.fetchDummyPosts();
+      const twitterPosts = await context.fetchPosts();
 
       res.status(200).send({
         success: true,
