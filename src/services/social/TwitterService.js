@@ -34,19 +34,23 @@ class TwitterService {
   async fetchDummyPosts() {
     const filteredPosts = twitter.data.filter(
       post =>
-      post.entities &&
-      post.entities.hashtags &&
-      post.entities.hashtags.some(
-        hashtag => hashtag.tag && hashtag.tag.toLowerCase() === 'developerlife'
-      )
+        post.entities &&
+        post.entities.hashtags &&
+        post.entities.hashtags.some(
+          hashtag => hashtag.tag && hashtag.tag.toLowerCase() === 'developerlife'
+        )
     );
-    
+
+    /** Updating the user object to give bigger profile images */
+    const user = {
+      ...twitter.includes.users[0],
+      profile_image_url: twitter.includes.users[0].profile_image_url.replace('_normal', '_400x400')
+    };
+
     return {
-      user: {
-        ...twitter.includes.users[0],
-      },
-      posts: filteredPosts
-    }
+      user,
+      tweets: filteredPosts
+    };
   }
 }
 
