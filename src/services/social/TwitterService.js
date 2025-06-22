@@ -35,7 +35,9 @@ class TwitterService {
 
   async fetchPosts() {
     const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-    const tempDir = path.join(__dirname, '../../mocks/temp');
+    
+    // Use /tmp on Vercel, local mocks/temp otherwise
+    const tempDir = process.env.VERCEL ? '/tmp' : path.join(__dirname, '../../mocks/temp');
     const tempFile = path.join(tempDir, `${today}-twitter.json`);
 
     // Check if file exists
