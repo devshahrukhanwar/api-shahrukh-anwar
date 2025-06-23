@@ -1,15 +1,27 @@
-const { TwitterService } = require("../services/social/TwitterService");
-const { SocialMediaService } = require("../services/social/SocialMediaService");
+const {
+  SocialMediaService,
+  TwitterService,
+  DevToService,
+  MediumService,
+} = require("../services");
 
 class SocialController {
   static async getPosts(_, res) {
     try {
-      const context = new SocialMediaService(new TwitterService());
-      const twitterPosts = await context.fetchPosts();
+      const devto = new SocialMediaService(new DevToService());
+      const medium = new SocialMediaService(new MediumService());
+      const twitter = new SocialMediaService(new TwitterService());
+      
+      const devtoPosts = await devto.fetchPosts();
+      const mediumPosts = await medium.fetchPosts();
+      const twitterPosts = await twitter.fetchPosts();
+
+      const blogs = [...mediumPosts, ...devtoPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
 
       res.status(200).send({
         success: true,
         data: {
+          blogs,
           twitter: twitterPosts,
         },
       });
