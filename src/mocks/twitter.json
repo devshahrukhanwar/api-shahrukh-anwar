@@ -297,6 +297,42 @@
         "1748753972708495628"
       ],
       "id": "1748753972708495628"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 120,
+            "end": 133,
+            "tag": "developerlife"
+          },
+          {
+            "start": 134,
+            "end": 141,
+            "tag": "webdev"
+          }
+        ],
+        "urls": [
+          {
+            "start": 60,
+            "end": 83,
+            "url": "https://t.co/techwit",
+            "expanded_url": "https://github.com/shahrukh4",
+            "display_url": "github.com/shahrukh4",
+            "status": 200,
+            "title": "Shahrukh's GitHub",
+            "description": "Check out my open source projects!",
+            "unwound_url": "https://github.com/shahrukh4"
+          }
+        ]
+      },
+      "text": "When you finally fix a bug after hours of debugging 🐛🔍, but realize it was a missing semicolon 😅; Celebrate the small wins! 🚀✨ #developerlife #webdev",
+      "created_at": "2025-06-24T10:00:00.000Z",
+      "author_id": "821086866900295680",
+      "edit_history_tweet_ids": [
+        "2000000000000000000"
+      ],
+      "id": "2000000000000000000"
     }
   ],
   "includes": {
