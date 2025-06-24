@@ -9,7 +9,7 @@ router.get("/", (_, res) => {
 });
 
 const apiRouter = express.Router();
-router.use("/api", apiRouter);
+router.use("/api/v1", apiRouter);
 
 // Social media posts
 const socialController = new SocialController();
