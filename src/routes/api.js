@@ -12,7 +12,8 @@ const apiRouter = express.Router();
 router.use("/api", apiRouter);
 
 // Social media posts
-apiRouter.get("/social/posts", SocialController.getPosts);
+const socialController = new SocialController();
+apiRouter.get("/social/posts", socialController.getPosts.bind(socialController));
 
 // Generate banners for projects
 apiRouter.post("/generate/banners", upload.none(), PuppeteerController.generateBanners);
