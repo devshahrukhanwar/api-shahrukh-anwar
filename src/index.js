@@ -1,9 +1,9 @@
 require("dotenv").config();
-require("./services/cleanupTempFilesCron");
 
 const cors = require("cors");
 const express = require("express");
 const app = express();
+const path = require("path");
 
 const apiRoutes = require("./routes/api");
 
@@ -29,6 +29,9 @@ app.use(cors({
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
 // Use API routes
 app.use("/", apiRoutes);
