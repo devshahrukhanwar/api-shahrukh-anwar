@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Thank You for Contacting
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  body(style="margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background-color: #101112; color: #ffffff;")
+    .email-wrapper(style="max-width: 600px; margin: 30px auto; padding: 30px; background-color: #1a1a1a; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);")
+      .header(style="text-align: center; margin-bottom: 30px;")
+        h1(style="font-size: 24px; color: #914bf1; margin: 0;") 🙏 Thank You for Reaching Out!
+      
+      div(style="margin-bottom: 10px;") Hi #{client.name},
+      div(style="margin-top: 10px;") Thanks for taking the time to connect with me through my portfolio website. I truly appreciate your message and I’ll get back to you as soon as possible! Here's a preview of your message:
+
+      .message-box(style="background-color: #2d2e2f; border-radius: 8px; padding: 20px; margin: 20px 0;")
+        p
+          span(style="font-weight: bold; color: #aaa;") Your Name:
+          br
+          span(style="color: #f0f0f0;") #{client.name}
+        p
+          span(style="font-weight: bold; color: #aaa;") Your Email:
+          br
+          span(style="color: #f0f0f0;") #{client.email}
+        br
+        p(style="margin: 0 0 10px;")
+          span(style="font-weight: bold; color: #aaa;") Your Message:
+          br
+          i
+            span(style="color: #f0f0f0;") #{client.message}
+
+      p(style="margin-top: 20px;")
+        | I’m #{admin.name}, a full stack developer with 8+ years of experience in crafting responsive, modern web applications. Feel free to connect with me on the platforms below in the meanwhile.
+
+      .socials(style="margin-top: 20px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; font-size: 13px;")
+        a(href=socials.github.url || '#', target="_blank", style="color: #914bf1; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin: 4px;")
+          img(src="https://skillicons.dev/icons?i=github", alt="GitHub", style="width: 16px; height: 16px;")
+          | #{socials.github.title}
+        a(href=socials.linkedin.url || '#', target="_blank", style="color: #914bf1; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin: 4px;")
+          img(src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg", alt="LinkedIn", style="width: 16px; height: 16px;")
+          | #{socials.linkedin.title}
+        a(href=socials.twitter.url || '#', target="_blank", style="color: #914bf1; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin: 4px;")
+          img(src="https://cdn-icons-png.flaticon.com/512/733/733579.png", alt="Twitter", style="width: 16px; height: 16px;")
+          | #{socials.twitter.title}
+        a(href=socials.stackoverflow.url || '#', target="_blank", style="color: #914bf1; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin: 4px;")
+          img(src="https://cdn-icons-png.flaticon.com/512/2111/2111628.png", alt="StackOverflow", style="width: 16px; height: 16px;")
+          | #{socials.stackoverflow.title}
+
+      .footer(style="text-align: center; margin-top: 30px; font-size: 12px; color: #666;")
+        | This email was sent to #{admin.email} in response to your message via 
+        a(href=appURL, style="color: #914bf1; text-decoration: underline;") #{appURL}

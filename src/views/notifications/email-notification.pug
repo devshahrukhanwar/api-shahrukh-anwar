@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title New Contact Form Submission
+  body(style="font-family: 'Segoe UI', sans-serif; background-color: #101112; color: #ffffff; margin: 0; padding: 0;")
+    div(style="max-width: 600px; margin: 30px auto; padding: 30px; background-color: #1a1a1a; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);")
+      div(style="text-align: center; margin-bottom: 30px;")
+        h1(style="font-size: 24px; color: #914bf1; margin: 0;") 📥 New Contact Form Submission
+      div Hello #{admin.name},
+      div(style="margin-bottom: 24px;") You’ve received a new contact message from your portfolio:
+      div(style="background-color: #2d2e2f; border-radius: 8px; padding: 20px; margin: 20px 0;")
+        p
+          span(style="font-weight: bold; color: #aaa;") Name:
+          br
+          span(style="color: #f0f0f0; margin-bottom: 10px;") #{client.name}
+        p
+          span(style="font-weight: bold; color: #aaa;") Email:
+          br
+          span(style="color: #f0f0f0; margin-bottom: 10px;") #{client.email}
+        p
+          span(style="font-weight: bold; color: #aaa;") Message:
+          br
+          span(style="color: #f0f0f0; margin-bottom: 10px;") #{client.message}
+      p(style="margin-top: 20px;") You can respond to the message directly:
+      a(href="mailto:#{client.email}" style="display: inline-block; background-color: #914bf1; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; margin-top: 20px; font-weight: 500;") Reply Now
+      div(style="text-align: center; margin-top: 30px; font-size: 12px; color: #666;")
+        p This message was generated from 
+          a(href=appURL style="color: #914bf1; text-decoration: underline;") #{appURL}
