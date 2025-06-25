@@ -36,14 +36,10 @@ class Cache {
 
   // Clear the cache (delete all temp files for today)
   static clear() {
-    const today = new Date().toISOString().slice(0, 10);
-
     if (!fs.existsSync(Cache.TEMP_DIR)) return;
-    
+
     fs.readdirSync(Cache.TEMP_DIR).forEach(file => {
-      if (file.startsWith(today + '-')) {
-        fs.unlinkSync(path.join(Cache.TEMP_DIR, file));
-      }
+      fs.unlinkSync(path.join(Cache.TEMP_DIR, file));
     });
   }
 }

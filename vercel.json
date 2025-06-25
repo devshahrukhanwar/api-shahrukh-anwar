@@ -13,5 +13,11 @@
 			"source": "/(.*)",
 			"destination": "/src"
 		}
+	],
+	"crons": [
+		{
+			"path": "/api/v1/clear/cache",
+			"schedule": "0 10 * * *"
+		}
 	]
 }
