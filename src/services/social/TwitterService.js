@@ -1,6 +1,5 @@
 const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
+const { Log } = require("../../utility");
 const twitter = require('../../mocks/twitter.json'); // Mock data for testing
 
 class TwitterService {
@@ -27,25 +26,15 @@ class TwitterService {
         }
       });
 
+      Log.info("Fetched posts from Twitter", { count: response.data.length });
       return response.data;
     } catch (err) {
+      Log.error("Failed to fetch posts from Twitter", err);
       throw new Error(`Failed to fetch posts from Twitter: ${err.message}`);
     }
   }
 
   async fetchPosts() {
-    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-    
-    // Use /tmp on Vercel, local mocks/temp otherwise
-    const tempDir = process.env.VERCEL ? '/tmp' : path.join(__dirname, '../../mocks/temp');
-    const tempFile = path.join(tempDir, `${today}-twitter.json`);
-
-    // Check if file exists
-    if (fs.existsSync(tempFile)) {
-      const cached = fs.readFileSync(tempFile, 'utf-8');
-      return JSON.parse(cached);
-    }
-
     // const twitter = await this.fetchTweets();
     const filteredPosts = twitter.data.filter(
       post =>
@@ -66,9 +55,6 @@ class TwitterService {
       user,
       tweets: filteredPosts
     };
-
-    // Write to temp file
-    fs.writeFileSync(tempFile, JSON.stringify(response, null, 2), 'utf-8');
 
     return response;
   }

@@ -1,4 +1,4 @@
-const { Response, getHTML } = require("../utility");
+const { Log, Response, getHTML } = require("../utility");
 const socials = require('../config/socials.json');
 const { Notification, EmailSender, TelegramSender } = require('../services');
 
@@ -44,7 +44,7 @@ class NotificationController {
         appURL: process.env.APP_URL
       });
 
-      Promise.race([
+      await Promise.all([
         this.notifyTG.send({ text: TGHTML}),
         this.notifyEmail.send({
           html: notifyHTML,
@@ -54,11 +54,13 @@ class NotificationController {
           html: thanksHTML,
           subject: `Thank you for contacting me, ${client.name}`
         })
-      ])
+      ]);
 
-      res.status(200).json(Response.success("Notifications sent successfully"));
+      Log.info("Notifications sent successfully", { name, email });
+      return res.status(200).json(Response.success("Notifications sent successfully"));
     } catch (error) {
-      res.status(500).json(Response.error("Error sending notification", error.message));
+      Log.error("Error sending notification", error);
+      return res.status(500).json(Response.error("Error sending notification", error.message));
     }
   }
 }
