@@ -7,7 +7,7 @@ class NotificationController {
   notifyTG
   notifyEmail
   notifyThanks
-
+  //
   constructor() {
     this.notifyEmail = new Notification(new EmailSender())
     this.notifyTG = new Notification(new TelegramSender())
