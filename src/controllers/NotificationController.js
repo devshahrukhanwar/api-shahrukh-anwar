@@ -1,5 +1,5 @@
-const { Log, Response, getHTML } = require("../utility");
 const socials = require('../config/socials.json');
+const { Log, Response, getHTML } = require("../utility");
 const { Notification, EmailSender, TelegramSender } = require('../services');
 
 class NotificationController {
@@ -44,7 +44,7 @@ class NotificationController {
         appURL: process.env.APP_URL
       });
 
-      await Promise.all([
+      await Promise.race([
         this.notifyTG.send({ text: TGHTML}),
         this.notifyEmail.send({
           html: notifyHTML,
