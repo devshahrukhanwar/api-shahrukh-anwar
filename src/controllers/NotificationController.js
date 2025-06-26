@@ -1,5 +1,5 @@
-const { Post } = require('../models/Post');
 const socials = require('../config/socials.json');
+const { Post } = require('../models');
 const { Log, Response, getHTML } = require("../utility");
 const { Notification, EmailSender, TelegramSender } = require('../services');
 
@@ -45,19 +45,18 @@ class NotificationController {
         appURL: process.env.APP_URL
       });
 
-      // await Promise.race([
-      //   this.notifyTG.send({ text: TGHTML}),
-      //   this.notifyEmail.send({
-      //     html: notifyHTML,
-      //     subject: `New contact form submission from ${name}`
-      //   }),
-      //   this.notifyThanks.send({
-      //     html: thanksHTML,
-      //     subject: `Thank you for contacting me, ${client.name}`
-      //   })
-      // ]);
-
-      await Post.create({ name, email, message });
+      await Promise.race([
+        Post.create({ name, email, message }),
+        this.notifyTG.send({ text: TGHTML}),
+        this.notifyEmail.send({
+          html: notifyHTML,
+          subject: `New contact form submission from ${name}`
+        }),
+        this.notifyThanks.send({
+          html: thanksHTML,
+          subject: `Thank you for contacting me, ${client.name}`
+        })
+      ]);
 
       Log.info("Notifications sent successfully", { name, email });
       return res.status(200).json(Response.success("Notifications sent successfully"));
