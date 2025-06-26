@@ -1,5 +1,5 @@
 const socials = require('../config/socials.json');
-const { Post } = require('../models');
+const { Contact } = require('../models');
 const { Log, Response, getHTML } = require("../utility");
 const { Notification, EmailSender, TelegramSender } = require('../services');
 
@@ -46,7 +46,7 @@ class NotificationController {
       });
 
       await Promise.race([
-        Post.create({ name, email, message }),
+        Contact.create({ name, email, message }),
         this.notifyTG.send({ text: TGHTML}),
         this.notifyEmail.send({
           html: notifyHTML,
