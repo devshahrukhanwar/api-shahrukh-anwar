@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { Log } = require("../../utility");
 
 class MediumService {
   /**
@@ -12,6 +13,8 @@ class MediumService {
 
       const { data } = await axios.get(`https://api.rss2json.com/v1/api.json?rss_url=${rssFeed}`);
 
+      Log.info("Fetched posts from Medium", { count: data.items.length });
+
       return data.items.slice(0, 5).map(post => ({
         source: 'Medium',
         title: post.title,
@@ -22,6 +25,7 @@ class MediumService {
         // html: post.content
       }))
     } catch (err) {
+      Log.error("Failed to fetch posts from Medium", err);
       throw new Error(`Failed to fetch posts from Medium: ${err.message}`);
     }
   }
