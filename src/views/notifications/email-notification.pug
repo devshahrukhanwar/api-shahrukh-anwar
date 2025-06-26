@@ -22,7 +22,8 @@ html(lang="en")
         p
           span(style="font-weight: bold; color: #aaa;") Message:
           br
-          span(style="color: #f0f0f0; margin-bottom: 10px;") #{client.message}
+          i
+            span(style="color: #f0f0f0; margin-bottom: 10px;") #{client.message}
       p(style="margin-top: 20px;") You can respond to the message directly:
       a(href="mailto:#{client.email}" style="display: inline-block; background-color: #914bf1; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; margin-top: 20px; font-weight: 500;") Reply Now
       div(style="text-align: center; margin-top: 30px; font-size: 12px; color: #666;")
