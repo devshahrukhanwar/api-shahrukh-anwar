@@ -1,4 +1,4 @@
-const { Cache } = require("../utility");
+const { Cache, Log, Response } = require("../utility");
 const {
   SocialMediaService,
   TwitterService,
@@ -23,10 +23,8 @@ class SocialController {
       const cachedPosts = Cache.get(cacheKey);
 
       if (Cache.has(cacheKey)) {
-        return res.status(200).send({
-          success: true,
-          data: cachedPosts,
-        });
+        Log.info(`Returning cached posts for key: ${cacheKey}`);
+        return res.status(200).json(Response.success("Social posts", cachedPosts));
       }
 
       // If no cached posts, fetch from services
@@ -42,19 +40,11 @@ class SocialController {
         twitter: twitterPosts,
       });
 
-      res.status(200).send({
-        success: true,
-        data: {
-          blogs,
-          twitter: twitterPosts,
-        },
-      });
+      Log.info(`Fetched and cached social posts for key: ${cacheKey}`);
+      return res.status(200).json(Response.success("Social posts", { blogs, twitter: twitterPosts }));
     } catch (error) {
-      res.status(500).send({
-        success: false,
-        message: "Failed to fetch posts",
-        error: error.message,
-      });
+      Log.error("Failed to fetch social posts", error);
+      return res.status(500).json(Response.error("Failed to fetch social posts", error));
     }
   }
 }

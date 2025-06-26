@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
+const { Log, Response } = require("../utility");
 
 const tempDir = process.env.VERCEL ? '/tmp' : path.resolve(__dirname, '../mocks/temp');
 
@@ -18,16 +19,11 @@ class PuppeteerController {
 
       const filePath = await PuppeteerController.captureScreenshot(name, url);
 
-      res.status(200).json({
-        success: true,
-        message: `✅ Screenshot saved: ${filePath}`
-      });
+      Log.info("Banners generated successfully", { name, url, filePath });
+      return res.status(200).json(Response.success("Banners generated successfully", { filePath }));
     } catch (error) {
-      res.status(500).send({
-        success: false,
-        message: "Failed to generate banners",
-        error: error.message,
-      });
+      Log.error("Failed to generate banners", error);
+      return res.status(500).json(Response.error("Failed to generate banners", error));
     }
   }
 
@@ -38,22 +34,28 @@ class PuppeteerController {
    * @returns 
    */
   static async captureScreenshot(name, url) {
-    const filePath = path.join(tempDir, `${name}.png`);
-    const browser = await puppeteer.launch({ headless: 'new' });
-    const page = await browser.newPage();
+    try {
+      const filePath = path.join(tempDir, `${name}.png`);
+      const browser = await puppeteer.launch({ headless: 'new' });
+      const page = await browser.newPage();
 
-    // 4K resolution with 2x scale for Retina quality
-    await page.setViewport({
-      width: 1280,
-      height: 800,
-      deviceScaleFactor: 2,
-    });
+      // 4K resolution with 2x scale for Retina quality
+      await page.setViewport({
+        width: 1280,
+        height: 800,
+        deviceScaleFactor: 2,
+      });
 
-    await page.goto(url, { waitUntil: 'networkidle2', timeout: 0 });
-    await page.screenshot({ path: filePath, fullPage: false });
-    await browser.close();
+      await page.goto(url, { waitUntil: 'networkidle2', timeout: 0 });
+      await page.screenshot({ path: filePath, fullPage: false });
+      await browser.close();
 
-    return filePath;
+      return filePath;
+    }
+    catch (error) {
+      Log.error("Error capturing screenshot", error);
+      throw new Error("Failed to capture screenshot");
+    }
   };
 }
 
