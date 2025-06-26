@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { Log } = require("../../utility");
 
 class DevToService {
   /**
@@ -15,6 +16,8 @@ class DevToService {
         }
       });
 
+      Log.info("Fetched posts from Dev.to", { count: data.length });
+
       return data.map(blog => ({
         source: 'Dev.to',
         date: blog.published_at,
@@ -23,6 +26,7 @@ class DevToService {
         banner: blog.cover_image,
       }));
     } catch (err) {
+      Log.error("Failed to fetch posts from Dev.to", err);
       throw new Error(`Failed to fetch posts from Dev.to: ${err.message}`);
     }
   }

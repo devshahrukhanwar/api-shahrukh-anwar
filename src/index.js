@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv-flow").config();
 
 const cors = require("cors");
 const express = require("express");
