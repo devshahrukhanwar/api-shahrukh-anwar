@@ -45,7 +45,7 @@ class NotificationController {
         appURL: process.env.APP_URL
       });
 
-      await Promise.race([
+      await Promise.all([
         Contact.create({ name, email, message }),
         this.notifyTG.send({ text: TGHTML}),
         this.notifyEmail.send({
