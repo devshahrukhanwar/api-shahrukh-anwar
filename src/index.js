@@ -1,4 +1,4 @@
-require("dotenv-flow").config();
+require("dotenv").config();
 
 const cors = require("cors");
 const express = require("express");
@@ -6,12 +6,18 @@ const app = express();
 const path = require("path");
 
 const apiRoutes = require("./routes/api");
+const swaggerSetup = require("./swagger");
 
 // Middleware
 const allowedOrigins = [
-  "http://localhost:5173",
-  "https://shahrukhanwar.vercel.app"
+  "https://shahrukhanwar.vercel.app",
+  "https://api-shahrukhanwar.vercel.app"
 ];
+
+if (process.env.APP_ENV === "local") {
+  allowedOrigins.push("http://localhost:5173");
+  allowedOrigins.push("http://localhost:3000");
+}
 
 app.use(cors({
   origin: function(origin, callback) {
@@ -35,6 +41,9 @@ app.set('view engine', 'pug');
 
 // Use API routes
 app.use("/", apiRoutes);
+
+// Swagger UI setup
+swaggerSetup(app);
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
 
