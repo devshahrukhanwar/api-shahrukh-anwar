@@ -1,4 +1,5 @@
 const express = require("express");
+const { NotificationsMiddleware } = require('../middleware');
 const { 
   NotificationController,
   PuppeteerController,
@@ -123,7 +124,7 @@ apiRouter.get("/social/posts", socialController.getPosts.bind(socialController))
  *                   type: string
  */
 const notificationController = new NotificationController();
-apiRouter.post("/notifications", upload.none(), notificationController.sendNotification.bind(notificationController));
+apiRouter.post("/notifications", NotificationsMiddleware.handle, upload.none(), notificationController.sendNotification.bind(notificationController));
 
 /**
  * @openapi
