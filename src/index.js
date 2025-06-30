@@ -14,7 +14,7 @@ const allowedOrigins = [
   process.env.API_URL
 ];
 
-if (process.env.APP_ENV !== "local") {
+if (process.env.APP_ENV === "local") {
   allowedOrigins.push("http://localhost:5173");
   allowedOrigins.push("http://localhost:3000");
 }
