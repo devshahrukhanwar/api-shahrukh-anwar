@@ -9,7 +9,7 @@ class NotificationsMiddleware {
   static handle(req, res, next) {
     const origin = req.get("Origin");
 
-    if (process.env.NODE_ENV === "local" && !NotificationsMiddleware.origins.includes(origin)) {
+    if (process.env.APP_ENV !== "local" && !NotificationsMiddleware.origins.includes(origin)) {
       Log.warn("Notifications access denied due to origin", { ip: req.ip, userAgent: req.get('User-Agent'), origin });
       return res.status(403).json(Response.error("Notifications access is restricted"));
     }
