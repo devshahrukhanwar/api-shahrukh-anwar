@@ -10,8 +10,8 @@ const swaggerSetup = require("./swagger");
 
 // Middleware
 const allowedOrigins = [
-  "https://shahrukhanwar.vercel.app",
-  "https://api-shahrukhanwar.vercel.app"
+  process.env.APP_URL,
+  process.env.API_URL
 ];
 
 if (process.env.APP_ENV === "local") {
@@ -32,6 +32,11 @@ app.use(cors({
     return callback(new Error("Not allowed by CORS"));
   }
 }));
+
+const tempDir = process.env.VERCEL ? '/tmp' : path.resolve(__dirname, 'mocks/temp');
+
+// Serve tempDir as a static directory
+app.use('/mocks/temp', express.static(tempDir));
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));

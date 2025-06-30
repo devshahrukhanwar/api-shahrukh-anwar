@@ -3,7 +3,8 @@ const path = require('path');
 const puppeteer = require('puppeteer');
 const { Log, Response } = require("../utility");
 
-const tempDir = process.env.VERCEL ? '/tmp' : path.resolve(__dirname, '../mocks/temp');
+const tempDir = process.env.VERCEL ? 'tmp' : 'mocks/temp';
+const tempPath = process.env.VERCEL ? `/${tempDir}` : path.resolve(__dirname, `../${tempDir}`);
 
 class PuppeteerController {
   /**
@@ -15,12 +16,13 @@ class PuppeteerController {
     try {
       const { name, url } = req.body;
 
-      if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
+      if (!fs.existsSync(tempPath)) fs.mkdirSync(tempPath);
 
+      const fileUrl = `${req.get('host')}/${tempDir}/${name}.png`;
       const filePath = await PuppeteerController.captureScreenshot(name, url);
 
-      Log.info("Banners generated successfully", { name, url, filePath });
-      return res.status(200).json(Response.success("Banners generated successfully", { filePath }));
+      Log.info("Banners generated successfully", { name, url, filePath, fileUrl });
+      return res.status(200).json(Response.success("Banners generated successfully", { url: fileUrl }));
     } catch (error) {
       Log.error("Failed to generate banners", error);
       return res.status(500).json(Response.error("Failed to generate banners", error));
@@ -35,7 +37,7 @@ class PuppeteerController {
    */
   static async captureScreenshot(name, url) {
     try {
-      const filePath = path.join(tempDir, `${name}.png`);
+      const filePath = path.join(tempPath, `${name}.png`);
       const browser = await puppeteer.launch({ headless: 'new' });
       const page = await browser.newPage();
 
