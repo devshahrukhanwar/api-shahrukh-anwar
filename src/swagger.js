@@ -1,3 +1,5 @@
+const path = require('path');
+const express = require("express");
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
@@ -28,5 +30,8 @@ const options = {
 const specs = swaggerJsdoc(options);
 
 module.exports = (app) => {
+  // Serve Swagger UI static files
+  app.use('/swagger-static', express.static(path.join(__dirname, '../node_modules/swagger-ui-dist')));
+
   app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs));
 };
