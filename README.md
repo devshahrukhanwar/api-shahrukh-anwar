@@ -1,37 +1,49 @@
-# 🚀 Portfolio API – Express.js, Vercel, Neon Postgres, Swagger
+# Portfolio API – Express.js, Vercel, Neon Postgres, Swagger
 
+[![Frontend](https://img.shields.io/badge/Frontend-shahrukh--anwar-blue?logo=github)](https://github.com/devshahrukhanwar/shahrukh-anwar)
 [![Vercel Deploy](https://img.shields.io/badge/Deployed%20on-Vercel-000?logo=vercel&logoColor=white)](https://api-shahrukhanwar.vercel.app)
 [![Postgres](https://img.shields.io/badge/Database-Neon%20Postgres-008cff?logo=postgresql&logoColor=white)](https://neon.com/)
 ![File](https://img.shields.io/badge/Cache-File-ff4c4c?logo=file&logoColor=white)
 [![Swagger Docs](https://img.shields.io/badge/API%20Docs-Swagger-85ea2d?logo=swagger&logoColor=black)](https://api-shahrukhanwar.vercel.app/docs)
-[![License](https://img.shields.io/github/license/devshahrukhanwar/api-shahrukh-anwar)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 ---
 
 ## 📝 Overview
 
-A modern, production-ready Node.js/Express API portfolio, designed for ready-to-ship serverless deployment on Vercel.  
-Features robust MVC architecture, hot reload, persistent caching, OpenAPI docs, analytics, notifications, and seamless integration with Neon Postgres and Upstash Redis.
+A modern, production-ready Node.js/Express portfolio API, designed for ready-to-ship serverless deployment on Vercel.
+
+Feature robust MVC architecture, hot reload, caching, OpenAPI docs, analytics, notifications, and seamless integration with Neon Postgres.
 
 > **Perfect for job applications, portfolio showcases, and scalable SaaS backends.**
 
 ---
 
+## 🖥️ Frontend(UI)
+
+This repository is backend-only. For frontend features and UI, please use the companion repository:
+
+> **Note:** For full functionality, clone and run the frontend UI from [shahrukh-anwar](https://github.com/devshahrukhanwar/shahrukh-anwar) as well.
+
+---
+
 ## ✨ Features
 
-- **Express.js** – Fast, minimalist API server
-- **Vercel Ready** – Serverless, zero-config deployment
-- **MVC Structure** – Clean separation of controllers, models, routes, services, utilities
-- **Hot Reload** – Local dev with `nodemon` and `tsc --watch`
-- **Caching** – File-based cache for serverless architecture
-- **CORS** – Secure, environment-aware CORS for local, preview, and production
-- **Database** – `Neon Postgres` (free tier, scalable)
-- **Cron Jobs** – Automated temp file cleanup (Vercel + local)
-- **OpenAPI/Swagger Docs** – Live, interactive API docs at `/docs`
-- **Notifications** – Email (Brevo), Telegram, and more
-- **API** – Telegram, Twitter, Medium, Dev.to, Brevo
-- **Analytics & Logging** – Custom utilities for request/error logging and analytics
-- **Professional Documentation** – All endpoints documented with OpenAPI
+| Feature                        | Description                                                          |
+| ------------------------------ | -------------------------------------------------------------------- |
+| **Express.js**                 | Fast, minimalist API server                                          |
+| **Vercel Ready**               | Serverless, zero-config deployment                                   |
+| **MVC Structure**              | Clean separation of controllers, models, routes, services, utilities |
+| **Hot Reload**                 | Local dev with `nodemon` and `tsc --watch`                           |
+| **Caching**                    | File-based cache for serverless architecture                         |
+| **CORS**                       | Secure, environment-aware CORS for local, preview, and production    |
+| **Database**                   | `Neon Postgres` (free tier, scalable)                                |
+| **Cron Jobs**                  | Automated temp file cleanup (Vercel + local)                         |
+| **OpenAPI/Swagger Docs**       | Live, interactive API docs at `/docs`                                |
+| **Notifications**              | Email (Brevo), Telegram, and more                                    |
+| **API**                        | Telegram, Twitter, Medium, Dev.to, Brevo                             |
+| **Analytics & Logging**        | Custom utilities for request/error logging and analytics             |
+| **Professional Documentation** | All endpoints documented with OpenAPI                                |
 
 ---
 
@@ -46,7 +58,7 @@ Features robust MVC architecture, hot reload, persistent caching, OpenAPI docs, 
 |   ├── migrations/       # SQL migrations for Neon Postgres
 │   ├── models/           # Data models (Contact, etc.)
 │   ├── routes/           # API route definitions
-│   ├── services/         # External integrations (email, Telegram, etc.)
+│   ├── services/         # External integrations (Email, Telegram, etc.)
 │   ├── utility/          # Cache, DB, Logging, Response, Template
 │   ├── views/            # For views, email templates
 │   ├── swagger.js        # Swagger/OpenAPI config
@@ -118,30 +130,39 @@ See `.env.example` for all required variables:
 ## 📦 Integrations
 
 - **Database:** [Neon Postgres](https://neon.com)
-- **Cache:** [Upstash Redis](https://upstash.com)
+- **Cache:** File based(Default), [Upstash Redis](https://upstash.com)
 - **Email:** [Brevo](https://www.brevo.com/)
 - **Social:** Twitter, Dev.to, Medium
 - **Notifications:** Telegram, Email
 
 ---
 
-## 🧑‍💻 Author & Social
+## 🤝 Contact
 
-**Shahrukh Anwar**  
-[![Portfolio](https://img.shields.io/badge/Portfolio-shahrukhanwar.vercel.app-000?logo=vercel)](https://shahrukhanwar.vercel.app)  
-[![Twitter](https://img.shields.io/badge/Twitter-@devshahrukh-1da1f2?logo=twitter&logoColor=white)](https://twitter.com/devshahrukh)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Shahrukh%20Anwar-0077b5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/devshahrukh)
-[![GitHub](https://img.shields.io/badge/GitHub-devshahrukhanwar-333?logo=github)](https://github.com/devshahrukhanwar)
-
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!  
-Feel free to open an issue or submit a pull request.
+- 📧 Email: [shahrukhanwar@proton.me](mailto:shahrukhanwar@proton.me)
+- 🌐 Portfolio: [shahrukhanwar.vercel.app](https://shahrukhanwar.vercel.app)
+- 💼 LinkedIn: [linkedin.com/in/devshahrukh](https://www.linkedin.com/in/devshahrukh)
+- 🐦 Twitter: [x.com/devshahrukh](https://x.com/devshahrukh)
 
 ---
 
-## 📝 License
+## 📄 License
 
-This project is [MIT](LICENSE) licensed.
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## 💖 Sponsor & Support
+
+If you find this project useful, star the repository, consider supporting me:
+
+<p align="left">
+  <a href="https://github.com/sponsors/devshahrukhanwar"><img src="https://img.shields.io/badge/Sponsor%20on-GitHub-E4405F?logo=githubsponsors&logoColor=fff&style=flat" alt="Sponsor on GitHub"/></a>
+  <a href="https://www.buymeacoffee.com/devshahrukh"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=000&style=flat" alt="Buy Me a Coffee"/></a>
+</p>
+
+---
+
+<p align="left">
+  Developed by Shahrukh Anwar | Built with Express.js | Hosted on Vercel
+</p>
