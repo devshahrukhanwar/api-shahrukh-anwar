@@ -1,4 +1,4 @@
-# Portfolio API – Express.js, Vercel, Neon Postgres, Swagger
+# Portfolio API – Express.js, Pug, Vercel, Neon Postgres, Swagger
 
 [![Frontend](https://img.shields.io/badge/Frontend-shahrukh--anwar-blue?logo=github)](https://github.com/devshahrukhanwar/shahrukh-anwar)
 [![Vercel Deploy](https://img.shields.io/badge/Deployed%20on-Vercel-000?logo=vercel&logoColor=white)](https://api-shahrukhanwar.vercel.app)
