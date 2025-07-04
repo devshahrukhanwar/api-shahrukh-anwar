@@ -1,5 +1,6 @@
 const axios = require("axios");
 
+const { Log } = require("../../utility");
 const { NotificationSender } = require("./NotificationSender");
 
 class EmailSender extends NotificationSender {
@@ -47,21 +48,33 @@ class EmailSender extends NotificationSender {
   }
 
   async send(content) {
-    const to = this.to.length ? this.to : EmailSender.TO;
+    try {
+      const to = this.to.length ? this.to : EmailSender.TO;
 
-    let sender = (this.sender && Object.keys(this.sender).length > 0) ? this.sender : EmailSender.SENDER;
-    sender = { ...sender, email: process.env.SENDER_EMAIL }
+      let sender = (this.sender && Object.keys(this.sender).length > 0) ? this.sender : EmailSender.SENDER;
+      sender = { ...sender, email: process.env.SENDER_EMAIL }
 
-    return await axios.post(
-      EmailSender.URL,
-      {
+      Log.info("Sending email", {
         to,
         sender,
         subject: content.subject,
-        htmlContent: content.html,
-      },
-      { headers: EmailSender.HEADERS }
-    );
+      });
+
+      return await axios.post(
+        EmailSender.URL,
+        {
+          to,
+          sender,
+          subject: content.subject,
+          htmlContent: content.html,
+        },
+        { headers: EmailSender.HEADERS }
+      );
+    }
+    catch (err) {
+      Log.error("Failed to send email", err);
+      throw new Error(`Failed to send email: ${err.message}`);
+    }
   }
 }
 
