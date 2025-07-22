@@ -11,8 +11,8 @@ class DevToService {
     try {
       const { data } = await axios.get(`${process.env.DEVTO_URL}/articles`, {
         params: {
-          per_page: 5,
-          username: process.env.DEVTO_USERNAME
+          username: process.env.DEVTO_USERNAME,
+          per_page: 5
         }
       });
 
