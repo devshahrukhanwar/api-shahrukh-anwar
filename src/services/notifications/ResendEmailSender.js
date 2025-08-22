@@ -1,13 +1,13 @@
-const axios = require("axios");
+const resend = require("resend");
 
 const { Log } = require("../../utility");
 const { NotificationSender } = require("./NotificationSender");
 
-class EmailSender extends NotificationSender {
+class ResendEmailSender extends NotificationSender {
   to = [];
   sender = {};
 
-	static URL = `${process.env.BREVO_BASE_URL}/smtp/email`;
+  resend = new resend.Resend(process.env.RESEND_API_KEY);
 
 	static SENDER = {
 		name: process.env.SENDER_NAME,
@@ -20,10 +20,6 @@ class EmailSender extends NotificationSender {
       email: process.env.RECEIVER_EMAIL,
     },
   ];
-
-  static HEADERS = {
-    "Api-Key": process.env.BREVO_API_KEY,
-  };
 
   /**
    * Sets the recipients for the email.
@@ -49,9 +45,9 @@ class EmailSender extends NotificationSender {
 
   async send(content) {
     try {
-      const to = this.to.length ? this.to : EmailSender.TO;
+      const to = this.to.length ? this.to : ResendEmailSender.TO;
 
-      let sender = (this.sender && Object.keys(this.sender).length > 0) ? this.sender : EmailSender.SENDER;
+      let sender = (this.sender && Object.keys(this.sender).length > 0) ? this.sender : ResendEmailSender.SENDER;
       sender = { ...sender, email: process.env.SENDER_EMAIL }
 
       Log.info("Sending email", {
@@ -60,16 +56,12 @@ class EmailSender extends NotificationSender {
         subject: content.subject,
       });
 
-      return await axios.post(
-        EmailSender.URL,
-        {
-          to,
-          sender,
-          subject: content.subject,
-          htmlContent: content.html,
-        },
-        { headers: EmailSender.HEADERS }
-      );
+      return await this.resend.emails.send({
+        from: `${to[0].name} <${sender.email}>`,
+        to: to.map(t => `${sender.name} <${sender.email}>`),
+        subject: content.subject,
+        html: content.html
+      });
     }
     catch (err) {
       Log.error("Failed to send email", err);
@@ -78,4 +70,4 @@ class EmailSender extends NotificationSender {
   }
 }
 
-module.exports = { EmailSender }
+module.exports = { ResendEmailSender }

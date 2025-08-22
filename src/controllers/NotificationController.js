@@ -1,7 +1,7 @@
 const socials = require('../config/socials.json');
 const { Contact } = require('../models');
 const { Log, Response, getHTML } = require("../utility");
-const { Notification, EmailSender, TelegramSender } = require('../services');
+const { Notification, ResendEmailSender, TelegramSender } = require('../services');
 
 class NotificationController {
   notifyTG
@@ -9,9 +9,9 @@ class NotificationController {
   notifyThanks
 
   constructor() {
-    this.notifyEmail = new Notification(new EmailSender())
+    this.notifyEmail = new Notification(new ResendEmailSender())
     this.notifyTG = new Notification(new TelegramSender())
-    this.notifyThanks = new Notification(new EmailSender())
+    this.notifyThanks = new Notification(new ResendEmailSender())
   }
 
   /**
@@ -45,17 +45,17 @@ class NotificationController {
         appURL: process.env.APP_URL
       });
 
-      await Promise.all([
+      await Promise.allSettled([
         Contact.create({ name, email, message }),
         this.notifyTG.send({ text: TGHTML}),
         this.notifyEmail.send({
           html: notifyHTML,
           subject: `New contact form submission from ${name}`
         }),
-        this.notifyThanks.send({
-          html: thanksHTML,
-          subject: `Thank you for contacting me, ${client.name}`
-        })
+        // this.notifyThanks.send({
+        //   html: thanksHTML,
+        //   subject: `Thank you for contacting me, ${client.name}`
+        // })
       ]);
 
       Log.info("Notifications sent successfully", { name, email });
